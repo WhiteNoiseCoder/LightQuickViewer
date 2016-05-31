@@ -1,5 +1,8 @@
 #include "shower.h"
+#include "viewer.h"
+
 #include <QApplication>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -7,6 +10,9 @@ int main(int argc, char *argv[])
 
     Shower shower;
     shower.start();
+
+    Viewer viewer;
+    viewer.show();
 
     return a.exec();
 }

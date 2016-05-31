@@ -2,9 +2,9 @@
 #define VIEWER_H
 
 #include "follower.h"
+#include "shower.h"
 
 #include <QObject>
-
 
 
 class Viewer : public QObject
@@ -16,6 +16,7 @@ public:
     void show();
 private:
     Follower follower;
+    Shower shower;
 };
 
 #endif // VIEWER_H

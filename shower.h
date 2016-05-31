@@ -7,10 +7,12 @@ class Shower
 {
 public:
     Shower();
+    void setPatch(const QUrl& path);
 
     void start();
 private:
     QQuickView quickView;
+    QUrl path;
 };
 
 #endif // SHOWER_H

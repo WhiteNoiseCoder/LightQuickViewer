@@ -10,6 +10,9 @@ Viewer::Viewer(QObject* parent): QObject(parent)
 void Viewer::show()
 {
     //FIXME: need change path to real user parameter
-    follower.add("C:/warehouse/Projects/Qt/ScenarioEditor/EffectThumb.qml");
-}
+    QString path = "C:/warehouse/Projects/Qt/ScenarioEditor/EffectThumb.qml";
 
+    follower.add(path);
+    shower.setPatch(QUrl::fromLocalFile(path));
+    shower.start();
+}

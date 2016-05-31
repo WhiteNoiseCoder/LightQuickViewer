@@ -2,11 +2,16 @@
 
 Shower::Shower()
 {
+}
 
+void Shower::setPatch(const QUrl &path)
+{
+    this->path = path;
 }
 
 void Shower::start()
 {
-    quickView.setSource(QUrl::fromLocalFile("C:/warehouse/Projects/Qt/ScenarioEditor/MainForm.ui.qml"));
+    if(path.isEmpty()) throw("empty path");
+    quickView.setSource(path);
     quickView.show();
 }

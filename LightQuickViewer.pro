@@ -13,7 +13,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    shower.cpp
+    shower.cpp \
+    follower.cpp
 
 HEADERS  += \
-    shower.h
+    shower.h \
+    follower.h

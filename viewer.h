@@ -11,9 +11,10 @@ class Viewer : public QObject
 {
     Q_OBJECT
 public:
+    enum ShowStatus {SHOWED, NOT_SHOWED};
     Viewer(QObject* parent = nullptr);
 
-    void show(int argc, char *argv[]);
+    ShowStatus show(int argc, char *argv[]);
 private:
     Follower follower;
     Shower shower;

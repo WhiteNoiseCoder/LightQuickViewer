@@ -9,7 +9,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     Viewer viewer;
-    viewer.show(argc, argv);
-
-    return a.exec();
+    if(viewer.show(argc, argv) == Viewer::SHOWED)
+    {
+        return a.exec();
+    }
+    return 0;
 }

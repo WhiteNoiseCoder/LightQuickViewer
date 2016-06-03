@@ -8,17 +8,31 @@ Viewer::Viewer(QObject* parent): QObject(parent)
     connect(&follower, &Follower::changed, [&](){ shower.update(); });
 }
 
-void Viewer::show(int argc, char *argv[])
+Viewer::ShowStatus Viewer::show(int argc, char *argv[])
 {
-    Parameters parameters(argc, argv);
-    parameters.parse();
-    if(parameters.isHelpTarget)
+    try
     {
-        parameters.printHelp();
-        return;
+        Parameters parameters(argc, argv);
+        parameters.parse();
+        if(parameters.isHelpTarget)
+        {
+            parameters.printHelp();
+            return NOT_SHOWED;
+        }
+        follower.setAllDirectoryWatch(parameters.isAllPath);
+        follower.add(parameters.pathString());
+        shower.setPatch(parameters.pathUrl());
+        shower.start();
+        return SHOWED;
     }
-    follower.setAllDirectoryWatch(parameters.isAllPath);
-    follower.add(parameters.pathString());
-    shower.setPatch(parameters.pathUrl());
-    shower.start();
+    catch(const QString& error)
+    {
+        qCritical() << error;
+        return NOT_SHOWED;
+    }
+    catch(...)
+    {
+        qCritical() << "Unknown error";
+        return NOT_SHOWED;
+    }
 }

@@ -13,7 +13,7 @@ void Shower::setPatch(const QUrl &path)
 
 void Shower::start()
 {
-    if(path.isEmpty()) throw("empty path");
+    if(path.isEmpty()) throw(QString("empty path"));
     quickView.setSource(path);
     quickView.show();
 }

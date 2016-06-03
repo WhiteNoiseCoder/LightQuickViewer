@@ -9,7 +9,7 @@ Follower::Follower()
 
 void Follower::add(const QString& path)
 {
-    if(_isAllDirectoryWatch)
+    if(!_isAllDirectoryWatch)
     {
         watcher.addPath(path);
     }

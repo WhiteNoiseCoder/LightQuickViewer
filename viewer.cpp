@@ -12,6 +12,7 @@ void Viewer::show(int argc, char *argv[])
 {
     Parameters parameters(argc, argv);
     parameters.parse();
+    follower.setAllDirectoryWatch(parameters.isAllPath);
     follower.add(parameters.pathString());
     shower.setPatch(parameters.pathUrl());
     shower.start();

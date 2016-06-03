@@ -12,6 +12,8 @@ public:
 
     QUrl pathUrl();
     QString pathString();
+
+    bool isAllPath = false;
 private:
     int count;
     char **arguments;

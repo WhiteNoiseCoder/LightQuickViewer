@@ -11,8 +11,12 @@ public:
     Follower();
 
     void add(const QString& path);
+    bool isAllDirectoryWatch() const;
+    void setAllDirectoryWatch(bool value);
+
 private:
     QFileSystemWatcher watcher;
+    bool _isAllDirectoryWatch = false;
 signals:
     void changed();
 };

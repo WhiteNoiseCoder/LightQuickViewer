@@ -15,9 +15,11 @@ TEMPLATE = app
 SOURCES += main.cpp\
     shower.cpp \
     follower.cpp \
-    viewer.cpp
+    viewer.cpp \
+    parameters.cpp
 
 HEADERS  += \
     shower.h \
     follower.h \
-    viewer.h
+    viewer.h \
+    parameters.h

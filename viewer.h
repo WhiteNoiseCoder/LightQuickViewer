@@ -13,7 +13,7 @@ class Viewer : public QObject
 public:
     Viewer(QObject* parent = nullptr);
 
-    void show();
+    void show(int argc, char *argv[]);
 private:
     Follower follower;
     Shower shower;

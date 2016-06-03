@@ -1,4 +1,5 @@
 #include "viewer.h"
+#include "parameters.h"
 
 #include <QDebug>
 
@@ -7,12 +8,11 @@ Viewer::Viewer(QObject* parent): QObject(parent)
     connect(&follower, &Follower::changed, [](){qDebug()<<"changed";});
 }
 
-void Viewer::show()
+void Viewer::show(int argc, char *argv[])
 {
-    //FIXME: need change path to real user parameter
-    QString path = "C:/warehouse/Projects/Qt/ScenarioEditor/EffectThumb.qml";
-
-    follower.add(path);
-    shower.setPatch(QUrl::fromLocalFile(path));
+    Parameters parameters(argc, argv);
+    parameters.parse();
+    follower.add(parameters.pathString());
+    shower.setPatch(parameters.pathUrl());
     shower.start();
 }

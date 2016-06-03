@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     Viewer viewer;
-    viewer.show();
+    viewer.show(argc, argv);
 
     return a.exec();
 }

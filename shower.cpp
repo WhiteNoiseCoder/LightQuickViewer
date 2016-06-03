@@ -1,5 +1,7 @@
 #include "shower.h"
 
+#include <QQmlEngine>
+
 Shower::Shower()
 {
 }
@@ -15,3 +17,14 @@ void Shower::start()
     quickView.setSource(path);
     quickView.show();
 }
+
+void Shower::update()
+{
+    quickView.setSource(QUrl());
+    quickView.engine()->clearComponentCache();
+    quickView.show();
+    quickView.setSource(path);
+    quickView.engine()->clearComponentCache();
+    quickView.show();
+}
+

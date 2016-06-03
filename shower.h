@@ -10,6 +10,7 @@ public:
     void setPatch(const QUrl& path);
 
     void start();
+    void update();
 private:
     QQuickView quickView;
     QUrl path;

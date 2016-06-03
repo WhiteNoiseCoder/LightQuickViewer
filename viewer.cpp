@@ -5,7 +5,7 @@
 
 Viewer::Viewer(QObject* parent): QObject(parent)
 {
-    connect(&follower, &Follower::changed, [](){qDebug()<<"changed";});
+    connect(&follower, &Follower::changed, [&](){ shower.update(); });
 }
 
 void Viewer::show(int argc, char *argv[])

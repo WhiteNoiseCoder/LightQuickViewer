@@ -9,11 +9,13 @@ public:
     Parameters(int argc, char *argv[]);
 
     void parse();
+    void printHelp();
 
     QUrl pathUrl();
     QString pathString();
 
     bool isAllPath = false;
+    bool isHelpTarget = false;
 private:
     int count;
     char **arguments;

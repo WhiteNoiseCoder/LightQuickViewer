@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <title>canvas</title>
+    <script type="text/javascript">
+        function onLoadHandler() {
+            var canvas  = document.getElementById('canvas');
+        
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://fonts.googleapis.com/css?family=Titillium+Web:700';
+            document.getElementsByTagName('head')[0].appendChild(link);
+
+            ctx = canvas.getContext('2d');
+            var bevelFactor = 0.25;
+            var size = 256;
+            ctx.fillStyle="#41CD52";
+                        
+            ctx.moveTo(0, size);
+            ctx.lineTo(0, size * bevelFactor);
+            ctx.lineTo(size * bevelFactor, 0);
+            ctx.lineTo(size, 0);
+            ctx.lineTo(size, size * (1 - bevelFactor));
+            ctx.lineTo(size * (1 - bevelFactor), size);
+            ctx.fill();
+            
+            var image = new Image;
+            image.src = link.href;
+            image.onerror = function() {
+                ctx.fillStyle="#FFFFFF";
+                ctx.font="120px 'Titillium Web'";
+                ctx.textAlign = "center";
+                ctx.textBaseline="middle"; 
+                ctx.fillText("LQV",size/2,size/2);
+            };
+        }
+        window.onload = onLoadHandler;
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas" width="256" height="256">HTML5 is not comportable</canvas>
+  </body>
+</html>

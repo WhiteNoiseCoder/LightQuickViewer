@@ -1,0 +1,26 @@
+IDI_ICON1 ICON "icons\icon.ico"
+
+#include <windows.h>
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     0,0,1,0
+PRODUCTVERSION  0,0,1
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "FileDescription",    "Live viewer for QML files"
+            VALUE "FileVersion",        "0.0.1.0\0"
+            VALUE "InternalName",       "Light Quick Viewer"
+            VALUE "OriginalFilename",   "LightQuickViewer.exe"
+            VALUE "ProductName",        "Light Quick Viewer"
+            VALUE "ProductVersion",     "0.0.1.0\0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END

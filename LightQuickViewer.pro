@@ -24,3 +24,7 @@ HEADERS  += \
     follower.h \
     viewer.h \
     parameters.h
+
+win32 {
+    RC_FILE = about.rc
+}

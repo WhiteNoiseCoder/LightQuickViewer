@@ -34,6 +34,9 @@
                 ctx.textBaseline="middle"; 
                 ctx.fillText("LQV",size/2,size/2);
             };
+
+                var img    = canvas.toDataURL("image/ico");
+                document.write('<img src="'+img+'"/>');
         }
         window.onload = onLoadHandler;
     </script>

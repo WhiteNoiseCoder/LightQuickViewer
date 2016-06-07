@@ -43,4 +43,5 @@ void Follower::onChanged(const QString &path)
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
     emit changed();
+    watcher.addPath(path);
 }

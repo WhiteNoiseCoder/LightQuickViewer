@@ -17,6 +17,8 @@ public:
 private:
     QFileSystemWatcher watcher;
     bool _isAllDirectoryWatch = false;
+private slots:
+    void onChanged(const QString &path);
 signals:
     void changed();
 };

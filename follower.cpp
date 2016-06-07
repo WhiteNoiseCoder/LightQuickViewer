@@ -1,10 +1,12 @@
 #include "follower.h"
 
 #include <QDir>
+#include <chrono>
+#include <thread>
 
 Follower::Follower()
 {
-    connect(&watcher, &QFileSystemWatcher::fileChanged, this, &Follower::changed);
+    connect(&watcher, &QFileSystemWatcher::fileChanged, this, &Follower::onChanged);
 }
 
 void Follower::add(const QString& path)
@@ -31,4 +33,14 @@ bool Follower::isAllDirectoryWatch() const
 void Follower::setAllDirectoryWatch(bool value)
 {
     _isAllDirectoryWatch = value;
+}
+
+void Follower::onChanged(const QString &path)
+{
+    QFileInfo checkFile(path);
+    while(!checkFile.exists())
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    emit changed();
 }
